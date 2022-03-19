@@ -1,0 +1,31 @@
+{
+    "name": "D365 Ribbon Debug Activator",
+    "description": "Activates the ribbon debug option in Dynamics 365.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.crm1.dynamics.com/*",
+                "https://*.crm2.dynamics.com/*",
+                "https://*.crm3.dynamics.com/*",
+                "https://*.crm4.dynamics.com/*",
+                "https://*.crm5.dynamics.com/*"
+            ],
+            "js": [
+                "ribbon-debug-activator.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
