@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
       console.log(tabUrl);
 
-      if (!tabUrl.includes(debugString)) {
+      if (!tabUrl.includes(debugString) && !tabUrl.endsWith("/")) {
         tabUrl += debugString;
 
         chrome.tabs.update(activeTab.id, { url: tabUrl });
